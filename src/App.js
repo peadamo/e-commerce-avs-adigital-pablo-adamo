@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          e-commerce-avs-digital
         </a>
         <h1>E-commerce AVS Digital</h1>
       </header>
