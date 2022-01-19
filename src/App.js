@@ -17,6 +17,7 @@ function App() {
         >
           Learn React
         </a>
+        <h1>E-commerce AVS Digital</h1>
       </header>
     </div>
   );
