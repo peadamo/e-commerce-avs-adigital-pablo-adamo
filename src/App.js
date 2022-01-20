@@ -18,6 +18,7 @@ function App() {
           e-commerce-avs-digital
         </a>
         <h1>E-commerce AVS Digital</h1>
+        <h2>prueba modificacion</h2>
       </header>
     </div>
   );
