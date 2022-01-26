@@ -5,7 +5,7 @@ import ItemListConteiner from './components/item-list-container/ItemListConteine
 import NavBar from "./components/NavBar/NavBar";
 
 
-const age=18
+
 function App() {
   return (
     <div className="App">

@@ -1,5 +1,5 @@
 import React from 'react';
-import CartIcon from '../../icon/CartIcon';
+
 import Item from '../item/Item';
 
 const items = [
