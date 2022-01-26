@@ -1,14 +1,21 @@
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavBar from "./components/NavBar/NavBar"
+import './App.css';
 
+import ItemListConteiner from './components/item-list-container/ItemListConteiner';
+import NavBar from "./components/NavBar/NavBar";
+
+
+const age=18
 function App() {
   return (
     <div className="App">
       <NavBar />
-      <h1>hola</h1>
+
+      <hr/>
+      <ItemListConteiner/>
     </div>
   );
 }
 
 export default App;
+ 
