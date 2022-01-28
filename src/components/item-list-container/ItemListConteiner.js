@@ -1,4 +1,5 @@
 import React from 'react';
+import CatIcon from '../../icon/CatIcon';
 
 import Item from '../item/Item';
 
@@ -13,6 +14,9 @@ const ItemListConteiner = () => {
     return <div>
 
 <h1>Item List Container</h1>
+<CatIcon/>
+
+
 <hr/>
         {items.map(({id,name,price}) => (
         <Item key={id} name={name} price={price}/>
