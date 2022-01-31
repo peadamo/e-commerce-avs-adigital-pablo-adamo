@@ -4,8 +4,6 @@ function CatIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="500"
-      height="500"
       x="0"
       y="0"
       viewBox="0 0 48 48"
