@@ -1,45 +1,56 @@
-import React, { useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Container, Row } from "react-bootstrap";
+import { productsAPI } from "../../helpers/promises";
 import Item from "../item/Item";
 
-const items = [
-  { id: "1", name: "jorgito", price: "80", stock: 15 },
-  { id: "2", name: "gualmayen", price: "30", stock: 13 },
-  { id: "3", name: "aguila", price: "150", stock: 20 },
-  { id: "4", name: "capitan del espacio", price: "10", stock: 200 },
-];
-
-const ItemListConteiner = () => {
+const ItemListContainer = () => {
   const [selectedItem, setSelectedItem] = useState(null);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  const getProducts = async () => {
+    try {
+      const result = await productsAPI;
+      setProducts(result);
+    } catch (error) {
+      console.log({ error });
+    } finally {
+      setLoading(false);
+      console.log("Finalización del consumo de la API productsAPI");
+    }
+  };
+
+  if (loading) {
+    return <h1>Cargando...</h1>;
+  }
 
   return (
-    <Container fluid>
-      <Row>
-        <Col>
-          {items.map(({ id, name, price, stock }) => (
+    <div>
+      <h1>Lista de productos</h1>
+      <h3>Producto seleccionado</h3>
+      <p>{selectedItem && selectedItem.name}</p>
+      <p>{selectedItem && selectedItem.description}</p>
+      <p>ID: {selectedItem && selectedItem.id}</p>
+      <p>STOCK seleccionado: {selectedItem && selectedItem.stock}</p>
+      <hr />
+      <Container>
+        <Row>
+          {" "}
+          {products.map((product) => (
             <Item
-              key={id}
-              name={name}
-              price={price}
-              id={id}
-              stock={stock}
+              key={product.id}
+              {...product}
               setSelectedItem={setSelectedItem}
             />
           ))}
-        </Col>
-        <Col lg="auto">
-          <div>
-            <h1>Item List Container</h1>
-            <h3>Producto Seleccionado</h3>
-            <p>{selectedItem ? selectedItem.id : "ninguno"}</p>
-            <p>{selectedItem ? selectedItem.name : "ninguno"}</p>
-            <p>{selectedItem ? selectedItem.price : "ninguno"}</p>
-            <p>{selectedItem ? selectedItem.stock : "ninguno"}</p>
-          </div>
-        </Col>
-      </Row>
-    </Container>
+        </Row>
+      </Container>
+    </div>
   );
 };
 
-export default ItemListConteiner;
+export default ItemListContainer;
