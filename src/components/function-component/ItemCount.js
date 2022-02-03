@@ -5,7 +5,7 @@ const ItemCounter = ({ stock, setSotckSelected }) => {
 
   useEffect(() => {
     setSotckSelected(counter);
-  }, [counter]);
+  }, [setSotckSelected,counter]);
 
   const minusCounter = () => {
     if (counter <= 0) return;
