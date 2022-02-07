@@ -1,12 +1,10 @@
 import { useState } from "react";
-import ItemCounter from "../function-component/ItemCount";
+
 import { Card, ListGroupItem, ListGroup, Col,Button } from "react-bootstrap";
 
-const Item = ({ id, name, description, stock, setSelectedItem, imgSrc }) => {
-  const [sotckSelected, setSotckSelected] = useState(0);
+const Item = ({ id, name, description,price, changeSelectedItem, imgSrc }) => {
+ 
 
-  const selectItem = () =>
-    setSelectedItem({ id, name, description, stock: sotckSelected, imgSrc });
 
   return (
     <>
@@ -18,11 +16,11 @@ const Item = ({ id, name, description, stock, setSelectedItem, imgSrc }) => {
             <Card.Text>{description}</Card.Text>
           </Card.Body>
           <ListGroup className="list-group-flush">
-            <ListGroupItem>Stock: {stock}</ListGroupItem>
+            <ListGroupItem>Precio: $ {price}</ListGroupItem>
           </ListGroup>
           <Card.Body>
-            <ItemCounter stock={stock} setSotckSelected={setSotckSelected} />
-            <Button variant="primary" onClick={selectItem}>
+        
+            <Button variant="primary" onClick={changeSelectedItem({ id, name, description,price, changeSelectedItem, imgSrc })}>
               Seleccionar producto
             </Button>
           </Card.Body>
