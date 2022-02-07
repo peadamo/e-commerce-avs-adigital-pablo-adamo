@@ -2,7 +2,7 @@
 
 export const showProductsAPI = new Promise((resolve, reject) => {
   setTimeout(() => {
-    // reject("Message Error from Reject");
+  console.log("soy una promesa de 5 seg")
     resolve();
   }, 2000);
 });

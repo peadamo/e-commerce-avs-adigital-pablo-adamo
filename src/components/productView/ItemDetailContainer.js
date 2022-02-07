@@ -5,29 +5,33 @@ const ItemDetailContainer = ({ changeSelectedItem, product }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getProducts();
+    getProductsDetail();
+    return () => {
+      setLoading(true);
+      console.log("loading set true");
+    };
   }, []);
 
-  const getProducts = async () => {
+  const getProductsDetail = async () => {
     try {
-      const result = await showProductsAPI;
-      console.log(result)
+     await showProductsAPI;
+     
     } catch (error) {
       console.log({ error });
     } finally {
       setLoading(false);
-      console.log("Finalización del consumo de la API productsAPI");
+      console.log("Finalización del consumo de la API detailProduct");
     }
   };
 
+  console.log(loading);
   if (loading) {
     return <h1>Cargando...</h1>;
   } else {
     return (
       <div>
         <h1>Soy un contenedor de detalles del producto</h1>
-        <button onClick={changeSelectedItem(null)
-        }>Volver atras</button>
+        <button onClick={changeSelectedItem(null)}>Volver atras</button>
         <Card style={{ width: "18rem" }}>
           <Card.Img variant="top" src={product.imgSrc} />
           <Card.Body>
