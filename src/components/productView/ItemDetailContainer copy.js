@@ -3,7 +3,7 @@ import { Card, ListGroupItem, ListGroup } from "react-bootstrap";
 import { showProductsAPI } from "./delay";
 const ItemDetailContainer = ({ changeSelectedItem, product }) => {
   const [loading, setLoading] = useState(true);
-
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     getProductsDetail();
