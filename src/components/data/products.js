@@ -12,7 +12,7 @@ export const products = [
     id: "2",
     name: "Kyocera M2040n",
     description: "Multifuncion Laser 40 ppm",
-    stock: 6,
+    stock: 34,
     price: 140000,
     imgSrc: require("../data/images/M2040n.png"),
     category: "impresoras",
@@ -28,7 +28,7 @@ export const products = [
   },
   {
     id: "4",
-    name: "securio C16",
+    name: "Securio C16",
     description: "Trituradora de papel",
     stock: 6,
     price: 45000,

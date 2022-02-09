@@ -2,8 +2,9 @@ import React from "react";
 import NavBar from "../components/NavBar/NavBar";
 import { BrowserRouter, Routes as Switch, Route } from "react-router-dom";
 import ItemListContainer from "../components/item-list-container/ItemListConteiner";
-import ProductView from "../components/productView/ProductView";
-import ItemDetailConteinerClase08 from "../components/item-detail-container/ItemDetailConteinerClase08";
+
+import ItemDetailConteiner from "../components/item-detail-container/ItemDetailConteiner";
+import CartConteiner from "../components/cart/CartConteiner";
 
 const Routes = () => {
   return (
@@ -11,16 +12,18 @@ const Routes = () => {
       <BrowserRouter>
         <NavBar />
         <Switch>
-          <Route path="/" element={<ItemListContainer />} />
-          <Route path="/category" element={<ProductView />} />
+        <Route path="/" element={<ItemListContainer />} />
+        <Route path="/cart" element={<CartConteiner/>} />
+
           <Route path="/category/:id" element={<ItemListContainer />} />
 
-
-          <Route path="/item/:id" element={<ItemDetailConteinerClase08 />} />
+          <Route path="/item/:id" element={<ItemDetailConteiner />} />
         </Switch>
       </BrowserRouter>
     </div>
   );
 };
+
+
 
 export default Routes;

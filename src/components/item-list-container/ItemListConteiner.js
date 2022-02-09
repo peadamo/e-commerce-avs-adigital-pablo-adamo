@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Spinner } from "react-bootstrap";
 import { productsAPI } from "../../helpers/promises";
 import { useParams } from "react-router-dom";
 import Item from "../item/Item";
@@ -28,7 +28,13 @@ const ItemListContainer = () => {
   };
 
   if (loading) {
-    return <h1>Cargando...</h1>;
+    return (
+      <div>
+        <br />
+        <br /> <h1>Cargando...</h1>
+        <Spinner animation="border" />
+      </div>
+    );
   }
 
   return (

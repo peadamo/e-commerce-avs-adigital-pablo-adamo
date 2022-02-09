@@ -1,6 +1,12 @@
-.activeClass{
-    color:green
+.navBarElement{
+ color: antiquewhite;
+ text-decoration: none;
+
 }
-.noActiveClass{
-    color:red
-}
+
+
+.navBarElementNavDropdown{
+    color: black;
+    text-decoration: none;
+   
+   }
