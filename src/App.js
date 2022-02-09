@@ -1,18 +1,12 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import NavBar from "./components/NavBar/NavBar";
-import ProductView from "./components/productView/ProductView";
 
-
-
-
-
+import Routes from "./routes/Routes";
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <ProductView/>
+      <Routes />
     </div>
   );
 }

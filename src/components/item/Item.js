@@ -1,8 +1,8 @@
 
-
+import {Link} from "react-router-dom"
 import { Card, ListGroupItem, ListGroup, Col,Button } from "react-bootstrap";
 
-const Item = ({ id, name, description,price, changeSelectedItem, imgSrc }) => {
+const Item = ({ id, name, description,price,  imgSrc }) => {
  
 
 
@@ -20,9 +20,11 @@ const Item = ({ id, name, description,price, changeSelectedItem, imgSrc }) => {
           </ListGroup>
           <Card.Body>
         
-            <Button variant="primary" onClick={changeSelectedItem({ id, name, description,price, changeSelectedItem, imgSrc })}>
+            <Button variant="primary" >
               Seleccionar producto
             </Button>
+            <hr></hr>
+            <Link to={`/item/${id}`} >ir a detalle</Link>
           </Card.Body>
         </Card>
       </Col>
