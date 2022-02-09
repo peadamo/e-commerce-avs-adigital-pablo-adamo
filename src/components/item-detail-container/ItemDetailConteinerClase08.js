@@ -14,7 +14,7 @@ const ItemDetailConteinerClase08 = () => {
     setShowProduct(products.filter((product) => product.id === id)[0])
   }, [id, products]);
 
-  
+  console.log("soy un console log suelto por ahi")
 
   const getProducts = async () => {
     try {
