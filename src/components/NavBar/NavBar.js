@@ -39,7 +39,7 @@ const NavBar = () => {
                   className="navBarElementNavDropdown"
                   to="category/escaners"
                 >
-                  Escaners
+                  <Container fluid>Escaners</Container>
                 </NavLink>
               </NavDropdown.Item>
               <NavDropdown.Item>
@@ -47,7 +47,7 @@ const NavBar = () => {
                   className="navBarElementNavDropdown"
                   to="category/impresoras"
                 >
-                  Impresoras
+                  <Container fluid>Impresoras</Container>
                 </NavLink>
               </NavDropdown.Item>
               <NavDropdown.Item>
@@ -55,20 +55,16 @@ const NavBar = () => {
                   className="navBarElementNavDropdown"
                   to="category/destructoras"
                 >
-                  Destructoras
+                  <Container fluid>Destructoras</Container>
                 </NavLink>
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
 
-
         <Link to="/cart">
-        <CartIcon />
-              </Link>
-
-       
-        
+          <CartIcon />
+        </Link>
       </Container>
     </Navbar>
   );
