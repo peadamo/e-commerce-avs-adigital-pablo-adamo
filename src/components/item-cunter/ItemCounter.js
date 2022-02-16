@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
 import { Button, Container, Row, Col } from "react-bootstrap";
 
-const ItemCounter = ({ stock ,setTotalToAdd}) => {
+const ItemCounter = ({ setTotalToAdd,item }) => {
   const [counter, setCounter] = useState(0);
+
+  const addItem = useContext(CartContext).addItem;
 
   const minusCounter = () => {
     if (counter <= 0) return;
@@ -11,14 +14,14 @@ const ItemCounter = ({ stock ,setTotalToAdd}) => {
   };
 
   const plusCounter = () => {
-    if (counter >= stock) return;
+    if (counter >= item.stock) return;
     setCounter(counter + 1);
   };
 
-  const setBuyCounter = () => { 
-    setTotalToAdd(counter)
-    // setCounterView(false)
-   }
+  const setBuyCounter = () => {
+    setTotalToAdd(counter);
+    addItem(item,counter)
+  };
 
   return (
     <>

@@ -14,7 +14,7 @@ const ItemDetailConteinerClase = () => {
     setShowProduct(products.filter((product) => product.id === id)[0])
   }, [id, products]);
 
-  console.log("soy un console log suelto por ahi")
+  // console.log("soy un console log suelto por ahi")
 
   const getProducts = async () => {
     try {
@@ -24,7 +24,7 @@ const ItemDetailConteinerClase = () => {
       console.log({ error });
     } finally {
       setLoading(false);
-      console.log("Finalización del consumo de la API productsAPI");
+      // console.log("Finalización del consumo de la API productsAPI");
     }
   };
 

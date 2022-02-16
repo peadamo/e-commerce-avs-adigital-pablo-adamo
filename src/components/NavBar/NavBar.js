@@ -62,9 +62,9 @@ const NavBar = () => {
           </Nav>
         </Navbar.Collapse>
 
-        <Link to="/cart">
+        <NavLink to="/cart">
           <CartIcon />
-        </Link>
+        </NavLink>
       </Container>
     </Navbar>
   );

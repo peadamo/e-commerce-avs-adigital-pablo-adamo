@@ -7,7 +7,7 @@ import Item from "../item/Item";
 const ItemListContainer = () => {
   const { id } = useParams();
 
-  console.log(id);
+  // console.log(id);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -23,7 +23,7 @@ const ItemListContainer = () => {
       console.log({ error });
     } finally {
       setLoading(false);
-      console.log("Finalización del consumo de la API productsAPI");
+      // console.log("Finalización del consumo de la API productsAPI");
     }
   };
 
