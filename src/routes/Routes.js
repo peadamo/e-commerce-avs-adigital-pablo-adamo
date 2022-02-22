@@ -5,6 +5,7 @@ import ItemListContainer from "../components/item-list-container/ItemListContein
 
 import ItemDetailConteiner from "../components/item-detail-container/ItemDetailConteiner";
 import CartConteiner from "../components/cart/CartConteiner";
+import OCRTest from "../ocr/OCRTest";
 
 const Routes = () => {
   return (
@@ -14,7 +15,7 @@ const Routes = () => {
         <Switch>
         <Route path="/" element={<ItemListContainer />} />
         <Route path="/cart" element={<CartConteiner/>} />
-
+        <Route path="/ocr" element={<OCRTest/>} />
           <Route path="/category/:id" element={<ItemListContainer />} />
 
           <Route path="/item/:id" element={<ItemDetailConteiner />} />

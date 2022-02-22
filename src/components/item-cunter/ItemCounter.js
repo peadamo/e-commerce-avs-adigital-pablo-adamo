@@ -3,7 +3,7 @@ import { CartContext } from "../../context/CartContext";
 
 import { Button, Container, Row, Col } from "react-bootstrap";
 
-const ItemCounter = ({ setTotalToAdd,item }) => {
+const ItemCounter = ({ setTotalToAdd, item }) => {
   const [counter, setCounter] = useState(0);
 
   const addItem = useContext(CartContext).addItem;
@@ -19,8 +19,15 @@ const ItemCounter = ({ setTotalToAdd,item }) => {
   };
 
   const setBuyCounter = () => {
+    if (counter > 0) {
+      setTotalToAdd(counter);
+      addItem(item, counter);
+    }
+  };
+
+  const resetCounter = () => {
+    setCounter(0);
     setTotalToAdd(counter);
-    addItem(item,counter)
   };
 
   return (
@@ -44,6 +51,11 @@ const ItemCounter = ({ setTotalToAdd,item }) => {
             <Col lg={4}>
               <Button variant="primary" size="sm" onClick={setBuyCounter}>
                 Añadir
+              </Button>
+            </Col>
+            <Col lg={4}>
+              <Button variant="primary" size="sm" onClick={resetCounter}>
+                Reiniciar
               </Button>
             </Col>
           </Row>

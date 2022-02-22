@@ -6,35 +6,38 @@ import CartConteiner from "../cart/CartConteiner";
 
 const ItemDetail = ({ showProduct }) => {
   const [totalToAdd, setTotalToAdd] = useState(null);
-  const [cardFoot, setCardFoot] = useState(null);
+  const [showCounter, setShowCounter] = useState(null);
 
   useEffect(() => {
-    if (totalToAdd > 0) {
-      setCardFoot(
-        <>
-          <Card.Text>Agregaste {totalToAdd} unidades al carrito</Card.Text>
-          <Link to="/cart">
-            <button>Terminar mi compra</button>
-          </Link>
-        </>
-      );
-    } else {
+    totalToAdd !== null
+      ? setShowCounter(
+          <>
+            <h3>La cantidad añadida es:{totalToAdd}</h3>
+            <br />
+            <button
+              onClick={() => {
+                setTotalToAdd(null);
+              }}
+            >
+              Reiniciar
+            </button>
+            <br />
 
-      setCardFoot(
+            <Link to="/cart">
+              <button>Terminar mi compra</button>
+            </Link>
+          </>
+        )
+      : setShowCounter(
+          <ItemCounter
+            stock={showProduct.stock}
+            setTotalToAdd={setTotalToAdd}
+            item={{ ...showProduct }}
+          />
+        );
 
-        <ItemCounter
-        stock={showProduct.stock}
-        setTotalToAdd={setTotalToAdd}
-        item={{ ...showProduct }}
-      />
-  
-
-      );
-
-
-
-    }
-  }, [totalToAdd,showProduct]);
+    return () => {};
+  }, [totalToAdd, showProduct]);
 
   return (
     <div>
@@ -64,8 +67,7 @@ const ItemDetail = ({ showProduct }) => {
                           Stock disponible {showProduct.stock}
                         </Card.Title>
                         <Card.Text>Precio: $ {showProduct.price}</Card.Text>
-             
-                        {cardFoot}
+                        {showCounter}
                       </Card.Body>
                     </Col>
                   </Row>

@@ -1,7 +1,8 @@
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
 import CartIcon from "../../icon/CartIcon";
 import { Link, NavLink } from "react-router-dom";
 import "./NavBar.css";
+import CartIconCounter from "./CartIconCounter";
 
 const NavBar = () => {
   return (
@@ -25,11 +26,14 @@ const NavBar = () => {
                 Home
               </Link>
             </Navbar.Brand>
+            {/* <Link to="/ocr" className="navBarElement">
+                OCR
+              </Link> */}
           </Container>
         </Navbar>
-        <br />
-
+     
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link></Nav.Link>
@@ -64,7 +68,9 @@ const NavBar = () => {
 
         <NavLink to="/cart">
           <CartIcon />
+    <CartIconCounter/>
         </NavLink>
+        
       </Container>
     </Navbar>
   );
