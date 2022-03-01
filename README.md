@@ -1,6 +1,8 @@
 
-//Notas de desarrollo de la web app para el curso de react 
-Pruebas de trabajo desde nueva pc
+# Notas de desarrollo de la web app para el curso de react comision-31110
+
+Aplicacion de e-commerce para venta de equipos de oficina, impresoras, escaner y destructoras
+por Pablo Emilio Adamo
 
 # Getting Started with Create React App
 
@@ -73,3 +75,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
+ 
