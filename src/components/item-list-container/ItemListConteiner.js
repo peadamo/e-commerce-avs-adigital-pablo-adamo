@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react";
-import { Container, Row, Spinner } from "react-bootstrap";
 
 import { useParams } from "react-router-dom";
 import Item from "../item/Item";
 import {
   getFirestore,
-
   collection,
   getDocs,
   query,
   where,
-
 } from "firebase/firestore";
+import { Box, CircularProgress } from "@mui/material";
 const ItemListContainer = () => {
   const { id } = useParams();
 
@@ -47,7 +45,7 @@ const ItemListContainer = () => {
       <div>
         <br />
         <br /> <h1>Cargando...</h1>
-        <Spinner animation="border" />
+        <CircularProgress />
       </div>
     );
   }
@@ -56,13 +54,17 @@ const ItemListContainer = () => {
     <div>
       <h1>Lista de productos</h1>
       <hr />
-      <Container>
-        <Row>
-          {products.map((product) => (
-            <Item key={product.id} {...product} />
-          ))}
-        </Row>
-      </Container>
+      <Box
+        sx={{
+          display: "inline-flex",
+          justifyContent: "center",
+          flexWrap: "wrap",
+        }}
+      >
+        {products.map((product) => (
+          <Item key={product.id} {...product} />
+        ))}
+      </Box>
     </div>
   );
 };

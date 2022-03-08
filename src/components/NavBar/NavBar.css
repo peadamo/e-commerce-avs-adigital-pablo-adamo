@@ -1,22 +1,25 @@
-.navBarElement{
- color: antiquewhite;
- text-decoration: none;
-
+.cartItemCount {
+  font-size: 12px;
+  background: #ff0000;
+  color: #fff;
+  padding: 0 5px;
+  vertical-align: top;
 }
 
-
-.navBarElementNavDropdown{
-    color: black;
-    text-decoration: none;
-   
-   }
-
-
-
-   .cartItemCount {
-    font-size: 12px;
-    background: #ff0000;
+.white{
     color: #fff;
-    padding: 0 5px;
-    vertical-align: top;
+    text-decoration: none;
+}
+
+.white:hover{
+  color: #fff;
+  text-decoration: none;
+}
+
+.noTextTransform{
+  text-transform: none;
+}
+
+.margin0{
+  margin-bottom:0
 }

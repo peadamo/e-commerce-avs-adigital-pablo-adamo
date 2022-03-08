@@ -1,7 +1,8 @@
+import { Button } from "@mui/material";
 import React, { useState, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 
-import { Button, Container, Row, Col } from "react-bootstrap";
+
 
 const ItemCounter = ({ setTotalToAdd, item }) => {
   const [counter, setCounter] = useState(0);
@@ -33,33 +34,19 @@ const ItemCounter = ({ setTotalToAdd, item }) => {
   return (
     <>
       <div>
-        <Container>
-          <Row className="justify-content-md-center">
-            <Col lg={1}>
               <Button variant="primary" size="sm" onClick={minusCounter}>
                 -
               </Button>
-            </Col>
-            <Col lg="auto">
               <span>{counter}</span>
-            </Col>
-            <Col lg={1}>
               <Button variant="primary" size="sm" onClick={plusCounter}>
                 +
               </Button>
-            </Col>
-            <Col lg={4}>
               <Button variant="primary" size="sm" onClick={setBuyCounter}>
                 Añadir
               </Button>
-            </Col>
-            <Col lg={4}>
               <Button variant="primary" size="sm" onClick={resetCounter}>
                 Reiniciar
               </Button>
-            </Col>
-          </Row>
-        </Container>
       </div>
     </>
   );
