@@ -55,11 +55,11 @@ export default function MediaCard({
               | Stock: {stock} u.
             </Typography>
           </CardContent>
-          <Link to={`/item/${id}`}>
+          <Link to={`/item/${id}`} className="noTextTransform">
             <CardActions
               sx={{ display: "grid", gridTemplateRows: "repeat(1, 1fr)", p: 1 }}
             >
-              <Button size="small" variant="contained">
+              <Button size="small" variant="contained" >
                 Comprar
               </Button>
             </CardActions>

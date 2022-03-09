@@ -47,6 +47,8 @@ const ItemCounter = ({ setTotalToAdd, item }) => {
               <Button variant="primary" size="sm" onClick={resetCounter}>
                 Reiniciar
               </Button>
+            
+
       </div>
     </>
   );

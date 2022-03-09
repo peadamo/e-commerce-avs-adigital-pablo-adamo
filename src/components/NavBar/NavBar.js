@@ -179,7 +179,7 @@ const NavBar = () => {
               {/* icono del user y submenu */}
               <Box>
 
-              <h6 className="margin0">{user.user}</h6>
+              <h6 >{user.user}</h6>
               </Box>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
