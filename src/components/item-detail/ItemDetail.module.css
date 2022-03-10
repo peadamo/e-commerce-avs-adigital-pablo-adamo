@@ -1,0 +1,87 @@
+.backRed {
+  /* background-color: rgb(219, 85, 85); */
+  background-color: red;
+}
+.backWhite {
+  /* background-color: rgb(219, 85, 85); */
+  background-color: rgb(255, 255, 255);
+}
+
+.descriptionText {
+  text-align: left;
+  color: #666;
+  font-size: 20px;
+}
+
+.maxWidth95 {
+  max-width: 95%;
+  min-width: 95%;
+  border-radius: 5px;
+  font-family: Proxima Nova,-apple-system,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+
+}
+.maxWidth30 {
+    max-width: 30%;
+    min-width: 30%;
+  }
+
+  
+
+  .maxWidth60 {
+    max-width: 65%;
+    min-width: 65%;
+  }
+
+
+.title {
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.18;
+  font-family: Proxima Nova,-apple-system,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+  padding-top: 10px;
+}
+
+.subTitle {
+  color: rgba(0, 0, 0, 0.55);
+  font-size: 16px;
+  font-weight: 100;
+}
+.price{
+    font-size: 36px;
+    font-family: Proxima Nova,-apple-system,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+    padding-top: 16px;
+}
+
+
+.textLeft{
+    text-align: left;
+    justify-content: left;
+}
+
+.noTextTransform{
+    text-transform: none;
+    text-decoration: none;
+  }
+  .link{
+      color: #3483fa;
+  }
+  .link:hover{
+    color: #2968c8;
+}
+
+.greenBold{
+    color: #00a650;
+    font-weight: 400;
+    font-size: 18px;
+    font-family: Proxima Nova,-apple-system,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+
+}
+
+.greenIcon{
+    color: #00a650;
+padding-right: 2px;
+}
+
+
+

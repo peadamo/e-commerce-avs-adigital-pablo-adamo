@@ -1,9 +1,9 @@
 import React from 'react'
-import "./ItemDetail.css";
+import styles from"./ItemDetail.module.css";
 
 export const MultilineText = ({linea}) => {
     console.log(linea)
   return (
-    <div><p className='backRed'>{linea}</p></div>
+    <div><p className={styles.descriptionText}>{linea}</p></div>
   )
 }

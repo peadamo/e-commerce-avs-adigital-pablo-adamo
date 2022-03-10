@@ -59,6 +59,8 @@ const ItemListContainer = () => {
           display: "inline-flex",
           justifyContent: "center",
           flexWrap: "wrap",
+          p:1,
+          m:1,
         }}
       >
         {products.map((product) => (

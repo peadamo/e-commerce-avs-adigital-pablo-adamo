@@ -6,12 +6,18 @@ import ItemDetailConteiner from "../components/item-detail-container/ItemDetailC
 import CartConteiner from "../components/cart/CartConteiner";
 import UserProfileContainer from "../components/user-container/UserProfileContainer";
 import UserOrdersContainer from "../components/user-container/UserOrdersContainer";
+import ErrorPage from "../components/error-page/ErrorPage";
+import CreateUser from "../components/user-container/CreateUser";
+import FooterContainer from "../components/footer/FooterContainer";
+import { Box } from "@mui/system";
 
 const Routes = () => {
   return (
     <div>
       <BrowserRouter>
         <NavBar />
+        <Box height={"100vh"} >
+
         <Switch>
           <Route path="/" element={<ItemListContainer />} />
           <Route path="/cart" element={<CartConteiner />} />
@@ -19,7 +25,13 @@ const Routes = () => {
           <Route path="/orders" element={<UserOrdersContainer />} />
           <Route path="/category/:id" element={<ItemListContainer />} />
           <Route path="/item/:id" element={<ItemDetailConteiner />} />
+          <Route path="/*" element={<ErrorPage />} />
+          <Route path="/newUser" element={<CreateUser />} />
+
+          
         </Switch>
+        </Box>
+        <FooterContainer/>
       </BrowserRouter>
     </div>
   );

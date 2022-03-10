@@ -152,87 +152,89 @@ const NavBar = () => {
             <Box
               sx={{ flexGrow: 0, display: "inline-flex", alignItems: "center" }}
             >
-    
               {/* icono del carrito */}
-        
 
+              {user.user == null ? (
+                <>
+                  {" "}
+                  <Button
+                    className="noTextTransform"
+                    sx={{ my: 2, color: "inherit", display: "block" }}
+                    onClick={() => {
+                      user.logUser("pedrito");
+                    }}
+                  >
+                    Ingresá
+                  </Button>
 
-{user.user==null?    <>     <Button
-               className="noTextTransform"
-                sx={{ my: 2, color: "inherit", display: "block" }}
-                onClick={()=>
-                  
-                  
-                  {user.logUser("pedrito")}}
-              >
-                Ingresá
-              </Button>
-              <Button
-               className="noTextTransform"
-               
-               sx={{ my: 2, color: "inherit", display: "block" }}
-             >
-               Creá tu cuenta
-             </Button></> 
-             :
-<>
-              {/* icono del user y submenu */}
-              <Box>
-
-              <h6 >{user.user}</h6>
-              </Box>
-              <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                </IconButton>
-              </Tooltip>
-              <Menu
-                sx={{ mt: "45px" }}
-                id="menu-appbar"
-                anchorEl={anchorElUser}
-                anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
-              >
-                <MenuItem key={"profile"} onClick={handleCloseUserMenu}>
-                  <Link to={"profile"} className="white">
-                    <Typography textAlign="center">Perfil</Typography>
-                  </Link>
-                </MenuItem>
-                <MenuItem key={"orders"} onClick={handleCloseUserMenu}>
-                  <Link to={"orders"} className="white">
-                    <Typography textAlign="center">Pedidos</Typography>
-                  </Link>
-                </MenuItem>
-                <MenuItem key={"exit"} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">Salir</Typography>
-                </MenuItem>
-              </Menu></>}
-
-
-
-
+                  <Link to="/newUser" className="noTextTransform white">
+                  <Button
+                    className="noTextTransform"
+                    sx={{ my: 2, color: "inherit", display: "block" }}
+                    >
+                    Creá tu cuenta
+                  </Button>
+                    </Link>
+                </>
+              ) : (
+                <>
+                  {/* icono del user y submenu */}
+                  <Box>
+                    <h6>{user.user}</h6>
+                  </Box>
+                  <Tooltip title="Open settings">
+                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
+                      <Avatar
+                        alt="Remy Sharp"
+                        src="/static/images/avatar/2.jpg"
+                      />
+                    </IconButton>
+                  </Tooltip>
+                  <Menu
+                    sx={{ mt: "45px" }}
+                    id="menu-appbar"
+                    anchorEl={anchorElUser}
+                    anchorOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    keepMounted
+                    transformOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    open={Boolean(anchorElUser)}
+                    onClose={handleCloseUserMenu}
+                  >
+                    <MenuItem key={"profile"} onClick={handleCloseUserMenu}>
+                      <Link to={"profile"} className="white">
+                        <Typography textAlign="center">Perfil</Typography>
+                      </Link>
+                    </MenuItem>
+                    <MenuItem key={"orders"} onClick={handleCloseUserMenu}>
+                      <Link to={"orders"} className="white">
+                        <Typography textAlign="center">Pedidos</Typography>
+                      </Link>
+                    </MenuItem>
+                    <MenuItem key={"exit"} onClick={handleCloseUserMenu}>
+                      <Typography textAlign="center">Salir</Typography>
+                    </MenuItem>
+                  </Menu>
+                </>
+              )}
 
               {/* ingreso a cuenta y registro de usuario */}
               <Link to="/cart" className="white">
-              <IconButton
-                size="large"
-                aria-label="show cart counter"
-                color="inherit"
-              >
-                <Badge badgeContent={itemsQuantity} color="error">
-                  <ShoppingCartIcon />
-                </Badge>
-              </IconButton>
-            </Link>
+                <IconButton
+                  size="large"
+                  aria-label="show cart counter"
+                  color="inherit"
+                >
+                  <Badge badgeContent={itemsQuantity} color="error">
+                    <ShoppingCartIcon />
+                  </Badge>
+                </IconButton>
+              </Link>
             </Box>
           </Toolbar>
         </Container>

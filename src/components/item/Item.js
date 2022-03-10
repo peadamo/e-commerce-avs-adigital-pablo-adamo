@@ -21,7 +21,7 @@ export default function MediaCard({
 
   return (
     <>
-      <Box sx={{ display: "inline-flex", justifyContent: "center" }}>
+      <Box sx={{ display: "inline-flex", justifyContent: "center" ,p:1}}>
         <Card sx={{ maxWidth: 300 }}>
           <Link to={`/item/${id}`}>
             <Box sx={{ width: 280, height: 280 }}>

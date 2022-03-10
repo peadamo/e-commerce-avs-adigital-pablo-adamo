@@ -2,67 +2,160 @@ import ItemCounter from "../item-cunter/ItemCounter";
 import { Link } from "react-router-dom";
 import * as React from "react";
 import { Box } from "@mui/material";
-import "./ItemDetail.css";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import { MultilineText } from "./MultilineText";
+import styles from "./ItemDetail.module.css";
+import BasicBreadcrumbs from "./BasicBreadcrumbs";
+import Grid from "@mui/material/Grid";
+import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
+import KeyboardReturnOutlinedIcon from "@mui/icons-material/KeyboardReturnOutlined";
 const Item = styled(Paper)(() => ({}));
 
 const ItemDetail = ({ showProduct }) => {
-
-
   return (
     <>
-      <Box sx={{ flexGrow: 1, display: "inline-flex" }}>
-        <Box sx={{ flexDirection: "column" }}>
-          <h2 className="backRed">DatosProducto</h2>
-          <h3>miniaturas</h3>
-          <img
-            src={showProduct.imgSrc}
-            width={280}
-            height={280}
-            alt={showProduct.name}
-          />
+      <Box
+        sx={{ flexGrow: 1, display: "inline-flex", p: 1 }}
+        className={`${styles.maxWidth95}`}
+      >
+        <BasicBreadcrumbs />
+      </Box>
 
-          <hr />
-          <h3>caracteristicas</h3>
-          <hr />
+      <Box
+        sx={{ flexGrow: 1, display: "inline-flex" }}
+        className={`${styles.backWhite} ${styles.maxWidth95}`}
+      >
+        <Box sx={{ flexGrow: 1 }}>
+          <Grid container spacing={2}>
+            <Grid item xs={8}>
+              <Box sx={{ flexDirection: "column", p: 1 }}>
+                <h3>miniaturas</h3>
+                <img
+                  src={showProduct.imgSrc}
+                  width={280}
+                  height={280}
+                  alt={showProduct.name}
+                />
 
-          {showProduct.fullDescription.split("&").map((line)=>
-            
-            (<MultilineText linea={line}/>)
-          )}
+                <hr />
+                <h3>caracteristicas</h3>
+                <hr />
 
+                {showProduct.fullDescription.split("&").map((line) => (
+                  <MultilineText linea={line} />
+                ))}
 
-          <hr />
-          {/* <p>{showProduct.fullDescription}</p> */}
-        </Box>
-        <Box>
-          <h2>datos Compra</h2>
-          <Item variant="outlined">
-            <h5>categoria</h5>
-            {showProduct.name}
+                <hr />
+              </Box>
+            </Grid>
+            <Grid item xs={4}>
+              <Box sx={{ p: 1 }}>
+                <Item variant="outlined">
+                  <Box
+                    sx={{
+                      p: 2,
+                      display: "flex",
+                      flexDirection: "column",
+                    }}
+                    className={styles.textLeft}
+                  >
+                    <span className={styles.subTitle}>Nuevo</span>
+                    <span className={`${styles.title} `}>
+                      {showProduct.name}
+                    </span>
+                    <span className={`${styles.price} `}>
+                      {showProduct.price.toLocaleString("es-CO", {
+                        style: "currency",
+                        currency: "COP",
+                        minimumFractionDigits: 0,
+                      })}
+                    </span>
+                    <span className={`${styles.greenBold} `}>
+                      en 12 x{" "}
+                      {(showProduct.price / 12).toLocaleString("es-CO", {
+                        style: "currency",
+                        currency: "COP",
+                        minimumFractionDigits: 0,
+                      })}{" "}
+                      sin interés
+                    </span>
+                    <Box sx={{ pt: 1 }}>
+                      <span className={`${styles.link} `}>
+                        Ver los medios de pago
+                      </span>
+                    </Box>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "flex-start",
+                        pt: 2,
+                      }}
+                    >
+                      <LocalShippingOutlinedIcon
+                        className={`${styles.greenIcon} `}
+                      />
 
-            <h3>
-              Precio:{" "}
-              {showProduct.price.toLocaleString("es-CO", {
-                style: "currency",
-                currency: "COP",
-              })}
-            </h3>
-          </Item>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent: "flex-start",
+                        }}
+                      >
+                        <span className={`${styles.greenBold} `}>
+                          Envio gratis a todo el país
+                        </span>
+                        <span className={`${styles.subTitle} `}>
+                          Conocé los tiempos y las formas de envío.
+                        </span>
+                      </Box>
+                    </Box>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "flex-start",
+                        pt: 2,
+                      }}
+                    >
+                      <KeyboardReturnOutlinedIcon
+                        className={`${styles.greenIcon} `}
+                      />
 
-          <h4>Cuotas</h4>
-          <h5>Stock Disponible?</h5>
-          <h6>Stock disponible {showProduct.stock} u.</h6>
-          <ItemCounter
-            stock={showProduct.stock}
-            item={{ ...showProduct }}
-          />
-          <Link to="/cart">
-            <button>Terminar mi compra</button>
-          </Link>
-          <h6>Detalle garantia</h6>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent: "flex-start",
+                        }}
+                      >
+                        <span className={`${styles.greenBold} `}>
+                          Devolución gratis
+                        </span>
+                        <span className={`${styles.subTitle} `}>
+                          Tenés 30 días desde que lo recibís.
+                        </span>
+                        <span className={`${styles.link} `}>Conocer más</span>
+                      </Box>
+                    </Box>
+                    <h5>Stock Disponible</h5>
+                   
+                    <ItemCounter
+                        stock={showProduct.stock}
+                        item={{ ...showProduct }}
+                      />
+                    
+                  </Box>
+                </Item>
+                <Link to="/cart">
+                  <button>Terminar mi compra</button>
+                </Link>
+                <h6>Detalle garantia</h6>
+              </Box>
+            </Grid>
+          </Grid>
         </Box>
       </Box>
     </>
