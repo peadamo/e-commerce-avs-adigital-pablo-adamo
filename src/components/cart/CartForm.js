@@ -1,5 +1,7 @@
 import { React, useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
+import { UserContext } from "../../context/UserContext";
+
 import { Box, Button, Stack, TextField } from "@mui/material";
 import {
   getFirestore,
@@ -11,6 +13,8 @@ import {
 } from "firebase/firestore";
 
 const Cartform = () => {
+  const user = useContext(UserContext);
+
   const items = useContext(CartContext).items;
   const clearCart = useContext(CartContext).clearCart;
   const totalPrice = useContext(CartContext).totalPrice;
@@ -19,11 +23,14 @@ const Cartform = () => {
     email: "email",
     adress: "adress",
     phone:"phone",
+    userId:user.user.id
   });
   const [orderId, setOrderId] = useState(null);
   const [isPurchaseDone, setIsPurchaseDone] = useState(false);
 
   const sendOrder = () => {
+ 
+
     const order = {
       totalPrice,
       buyer,

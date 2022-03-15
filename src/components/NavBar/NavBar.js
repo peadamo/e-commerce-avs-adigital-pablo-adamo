@@ -50,7 +50,12 @@ const NavBar = () => {
     setAnchorElUser(null);
   };
 
-  console.log(user);
+
+  const exitButton=()=>{
+    handleCloseUserMenu()
+    user.logUser(null)
+
+  }
 
   return (
     <ThemeProvider theme={darkTheme}>
@@ -118,6 +123,7 @@ const NavBar = () => {
 
             {/* barra menu desktop */}
             <Typography
+            key={"?"}
               variant="h6"
               noWrap
               component="div"
@@ -156,37 +162,38 @@ const NavBar = () => {
 
               {user.user == null ? (
                 <>
-                  {" "}
-                  <Button
-                    className="noTextTransform"
-                    sx={{ my: 2, color: "inherit", display: "block" }}
-                    onClick={() => {
-                      user.logUser("pedrito");
-                    }}
-                  >
-                    Ingresá
-                  </Button>
+                      <Link to="/logUser" className="noTextTransform white">
+                    <Button
+                      className="noTextTransform"
+                      sx={{ my: 2, color: "inherit", display: "block" }}
+                    >
+                      Ingresa
+                    </Button>
+                  </Link>
+
+
+
 
                   <Link to="/newUser" className="noTextTransform white">
-                  <Button
-                    className="noTextTransform"
-                    sx={{ my: 2, color: "inherit", display: "block" }}
+                    <Button
+                      className="noTextTransform"
+                      sx={{ my: 2, color: "inherit", display: "block" }}
                     >
-                    Creá tu cuenta
-                  </Button>
-                    </Link>
+                      Creá tu cuenta
+                    </Button>
+                  </Link>
                 </>
               ) : (
                 <>
                   {/* icono del user y submenu */}
                   <Box>
-                    <h6>{user.user}</h6>
+                    <h6>{user.user.userName}</h6>
                   </Box>
                   <Tooltip title="Open settings">
                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
                       <Avatar
                         alt="Remy Sharp"
-                        src="/static/images/avatar/2.jpg"
+                        src={user.user.imgSrc}
                       />
                     </IconButton>
                   </Tooltip>
@@ -216,7 +223,7 @@ const NavBar = () => {
                         <Typography textAlign="center">Pedidos</Typography>
                       </Link>
                     </MenuItem>
-                    <MenuItem key={"exit"} onClick={handleCloseUserMenu}>
+                    <MenuItem key={"exit"} onClick={exitButton}>
                       <Typography textAlign="center">Salir</Typography>
                     </MenuItem>
                   </Menu>

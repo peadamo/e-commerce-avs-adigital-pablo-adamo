@@ -149,10 +149,7 @@ const ItemDetail = ({ showProduct }) => {
                     
                   </Box>
                 </Item>
-                <Link to="/cart">
-                  <button>Terminar mi compra</button>
-                </Link>
-                <h6>Detalle garantia</h6>
+               
               </Box>
             </Grid>
           </Grid>

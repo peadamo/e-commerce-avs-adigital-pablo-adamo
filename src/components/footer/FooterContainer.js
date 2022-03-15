@@ -1,7 +1,6 @@
 import { Box, Container } from "@mui/material";
 import React from "react";
 import Typography from '@mui/material/Typography';
-import "./footer.css"
 const FooterContainer = () => {
   return (
     <footer>
@@ -20,7 +19,7 @@ const FooterContainer = () => {
       >
         <Container maxWidth="sm">
           <Typography variant="body1">
-            Soy un footer feliz : ) 😁
+            Soy un footer feliz : 😁
           </Typography>
         </Container>
       </Box>

@@ -1,6 +1,5 @@
 import { React, useContext } from "react";
-import { CartContext } from "../../context/CartContext";
-import Cartform from "./CartForm";
+import { CartContext } from "../../../context/CartContext";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -32,17 +31,14 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     border: 0,
   },
 }));
-
-const Cart = () => {
+const UserOrderTable = (orderData) => {
   const items = useContext(CartContext).items;
-  const clearCart = useContext(CartContext).clearCart;
-  const removeItem = useContext(CartContext).removeItem;
   const totalPrice = useContext(CartContext).totalPrice;
 
-  function createData(name, description, price, quantity, id) {
-    return { name, description, price, quantity, id };
+  function createData(name, description, price, quantity) {
+    return { name, description, price, quantity };
   }
-  const rows = items.map((item) =>
+  const rows = orderData.items.map((item) =>
     createData(
       item.name,
       item.description,
@@ -51,14 +47,16 @@ const Cart = () => {
         currency: "COP",
       }),
       item.quantity,
-      item.id
+     
     )
   );
-  console.log(rows);
+ ;
+
+
+
 
   return (
     <div>
-      <h1>Carrito de compras</h1>
       <Box
         sx={{
           display: "inline-flex",
@@ -67,6 +65,7 @@ const Cart = () => {
         }}
       >
         <Container>
+            <h1>Codigo del pedido {orderData.id}</h1>
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 500 }} aria-label="customized table">
               <TableHead>
@@ -75,7 +74,6 @@ const Cart = () => {
                   <StyledTableCell align="right">Descripcion</StyledTableCell>
                   <StyledTableCell align="right">Precio</StyledTableCell>
                   <StyledTableCell align="right">Cantidad</StyledTableCell>
-                  <StyledTableCell align="right"></StyledTableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -91,23 +89,18 @@ const Cart = () => {
                     <StyledTableCell align="right">
                       {row.quantity}
                     </StyledTableCell>
-                    <StyledTableCell align="right">
-                      <button onClick={() => removeItem(row.id)}>X</button>
-                    </StyledTableCell>
+               
                   </StyledTableRow>
                 ))}
               </TableBody>
             </Table>
           </TableContainer>
-          <h3>Precio Total $ {totalPrice}</h3>
-          <button onClick={clearCart}>Limpiar carrito</button>
+          <h3>Precio Total $ {orderData.totalPrice}</h3>
         </Container>
-        <Container>
-          <Cartform />
-        </Container>
+      
       </Box>
     </div>
   );
 };
 
-export default Cart;
+export default UserOrderTable;

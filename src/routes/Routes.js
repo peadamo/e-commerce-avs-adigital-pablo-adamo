@@ -10,28 +10,30 @@ import ErrorPage from "../components/error-page/ErrorPage";
 import CreateUser from "../components/user-container/CreateUser";
 import FooterContainer from "../components/footer/FooterContainer";
 import { Box } from "@mui/system";
+import UserLogIn from "../components/user-container/UserLogIn";
 
 const Routes = () => {
   return (
     <div>
       <BrowserRouter>
         <NavBar />
-        <Box height={"100vh"} >
+        <Box height={"100vh"}>
+          <Switch>
+            <Route path="/" element={<ItemListContainer />} />
+            <Route path="/cart" element={<CartConteiner />} />
+            <Route path="/profile" element={<UserProfileContainer />} />
+            <Route path="/orders" element={<UserOrdersContainer />} />
+            <Route path="/category/:id" element={<ItemListContainer />} />
+            <Route path="/item/:id" element={<ItemDetailConteiner />} />
+            <Route path="/*" element={<ErrorPage />} />
+            <Route path="/newUser" element={<CreateUser />} />
+            <Route path="/logUser" element={<UserLogIn />} />
+            
 
-        <Switch>
-          <Route path="/" element={<ItemListContainer />} />
-          <Route path="/cart" element={<CartConteiner />} />
-          <Route path="/profile" element={<UserProfileContainer />} />
-          <Route path="/orders" element={<UserOrdersContainer />} />
-          <Route path="/category/:id" element={<ItemListContainer />} />
-          <Route path="/item/:id" element={<ItemDetailConteiner />} />
-          <Route path="/*" element={<ErrorPage />} />
-          <Route path="/newUser" element={<CreateUser />} />
+          </Switch>
+        <FooterContainer />
 
-          
-        </Switch>
         </Box>
-        <FooterContainer/>
       </BrowserRouter>
     </div>
   );

@@ -3,18 +3,18 @@ import { useState, useContext } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { UserContext } from "../../context/UserContext";
-
+import { Navigate, Redirect } from "react-router-dom";
 import {
   getFirestore,
   collection,
-  addDoc,
-  doc,
-  writeBatch,
+  getDocs,
+  query,
+  where,
 } from "firebase/firestore";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 
-export default function CreateUser() {
+export default function UserLogIn() {
   const user = useContext(UserContext);
 
   const [userLog, setUserLog] = useState({
@@ -22,28 +22,32 @@ export default function CreateUser() {
     password: null,
   });
 
-  const loadDataToServer = () => {
-    return new Promise((resolve) => {
-      const db = getFirestore();
-      const batch = writeBatch(db);
-      const usersCollection = collection(db, "users");
+  const [validatedUser, setValidatedUser] = useState(null);
 
-      addDoc(usersCollection, {}).then(({ id }) => {
-        const docRef = doc(db, "users", `${id}`);
-        batch.update(docRef, { ...userLog });
-        batch.commit();
-        resolve(id);
-      });
+  const valideteUser = () => {
+    const db = getFirestore();
+    const itemsCollection = query(
+      collection(db, "users"),
+      where("userName", "==", `${userLog.userName}`),
+      where("password", "==", `${userLog.password}`)
+    );
+
+    getDocs(itemsCollection).then((snapShot) => {
+      let usersList = snapShot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      console.log(usersList);
+      if(usersList.length>0){user.logUser({...usersList[0]})
+    }
+      setValidatedUser(usersList);
     });
   };
 
-  const sendUser = async () => {
-    const idDelFukingUsuario = await loadDataToServer();
-    console.log(idDelFukingUsuario);
+  console.log("render");
 
-    user.logUser({ ...userLog, id: idDelFukingUsuario });
-  };
-
+  if(validatedUser && validatedUser.length>0){
+    return <Navigate to="/"/>}
   return (
     <Box
       component="form"
@@ -69,8 +73,15 @@ export default function CreateUser() {
           onChange={(e) => setUserLog({ ...userLog, password: e.target.value })}
         />
       </div>
-      <Link to="/">
-        <Button onClick={sendUser}>Registrar</Button>
+
+      {/* {validatedUser && <h5>usuario o contraseña incorrecto</h5>} */}
+
+      {validatedUser && <h5>usuario o contraseña incorrecto</h5>}
+
+      
+
+      <Link to="">
+        <Button onClick={valideteUser}>Ingresar</Button>
       </Link>
     </Box>
   );
