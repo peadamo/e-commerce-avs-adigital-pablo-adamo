@@ -3,7 +3,7 @@ import { useState, useContext } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { UserContext } from "../../context/UserContext";
-import { Navigate, Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import {
   getFirestore,
   collection,

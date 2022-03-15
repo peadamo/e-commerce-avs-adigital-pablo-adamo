@@ -17,7 +17,7 @@ const Routes = () => {
     <div>
       <BrowserRouter>
         <NavBar />
-        <Box height={"100vh"}>
+        <Box minHeight={"100vh"}>
           <Switch>
             <Route path="/" element={<ItemListContainer />} />
             <Route path="/cart" element={<CartConteiner />} />
@@ -31,9 +31,10 @@ const Routes = () => {
             
 
           </Switch>
-        <FooterContainer />
 
         </Box>
+        <FooterContainer />
+
       </BrowserRouter>
     </div>
   );

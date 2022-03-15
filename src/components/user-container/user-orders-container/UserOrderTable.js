@@ -1,5 +1,4 @@
-import { React, useContext } from "react";
-import { CartContext } from "../../../context/CartContext";
+import { React } from "react";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -32,8 +31,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 const UserOrderTable = (orderData) => {
-  const items = useContext(CartContext).items;
-  const totalPrice = useContext(CartContext).totalPrice;
 
   function createData(name, description, price, quantity) {
     return { name, description, price, quantity };

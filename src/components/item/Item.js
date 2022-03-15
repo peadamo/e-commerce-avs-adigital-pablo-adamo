@@ -68,7 +68,7 @@ export default function MediaCard({
           <CardActions
             sx={{ display: "grid", gridTemplateRows: "repeat(1, 1fr)", p: 1 }}
           >
-            <Button size="small" variant="outlined">
+            {/* <Button size="small" variant="outlined">
               <IconButton
                 size="small"
                 aria-label="show cart counter"
@@ -78,7 +78,7 @@ export default function MediaCard({
                 <ShoppingCartIcon />
               </IconButton>
               Agregar
-            </Button>
+            </Button> */}
           </CardActions>
         </Card>
       </Box>

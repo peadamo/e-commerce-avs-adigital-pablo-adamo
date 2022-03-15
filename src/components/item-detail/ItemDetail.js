@@ -1,5 +1,4 @@
 import ItemCounter from "../item-cunter/ItemCounter";
-import { Link } from "react-router-dom";
 import * as React from "react";
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
@@ -30,7 +29,6 @@ const ItemDetail = ({ showProduct }) => {
           <Grid container spacing={2}>
             <Grid item xs={8}>
               <Box sx={{ flexDirection: "column", p: 1 }}>
-                <h3>miniaturas</h3>
                 <img
                   src={showProduct.imgSrc}
                   width={280}
@@ -39,7 +37,7 @@ const ItemDetail = ({ showProduct }) => {
                 />
 
                 <hr />
-                <h3>caracteristicas</h3>
+                <h3>Caracteristicas</h3>
                 <hr />
 
                 {showProduct.fullDescription.split("&").map((line) => (

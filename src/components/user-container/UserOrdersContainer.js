@@ -26,7 +26,7 @@ const UserOrdersContainer = () => {
     getDocs(itemsCollection).then((snapShot) => {
       setOrders(snapShot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
     });
-  }, []);
+  }, [user.user.id]);
 
   if(user.user==null){
     return<h1>No hay usuario loggeado</h1>
