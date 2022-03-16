@@ -53,8 +53,7 @@ const FileUpload = () => {
         // Upload completed successfully, now we can get the download URL
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           console.log("File available at", downloadURL);
-          user.logUser({...user.user,imgSrc:downloadURL})
-          console.log(user)
+          user.logUser({ ...user.user, imgSrc: downloadURL });
         });
       }
     );
@@ -62,9 +61,12 @@ const FileUpload = () => {
 
   return (
     <div>
-      <h1>Subir imagend e perfil</h1>
-      <input type="file" onChange={uploadFile} />
-      <h3>jaj</h3>
+   
+      <label htmlFor="filePicker" style={{ background:"grey", padding:"5px 10px" }}>
+Cambiar foto de perfil
+</label>
+<input id="filePicker" style={{visibility:"hidden"}} type={"file"} onChange={uploadFile}  
+      accept="image/png, image/jpeg"></input>
     </div>
   );
 };

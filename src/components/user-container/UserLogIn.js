@@ -37,14 +37,12 @@ export default function UserLogIn() {
         id: doc.id,
         ...doc.data(),
       }));
-      console.log(usersList);
       if(usersList.length>0){user.logUser({...usersList[0]})
     }
       setValidatedUser(usersList);
     });
   };
 
-  console.log("render");
 
   if(validatedUser && validatedUser.length>0){
     return <Navigate to="/"/>}

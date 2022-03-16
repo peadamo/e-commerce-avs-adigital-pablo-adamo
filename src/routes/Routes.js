@@ -4,7 +4,7 @@ import { BrowserRouter, Routes as Switch, Route } from "react-router-dom";
 import ItemListContainer from "../components/item-list-container/ItemListConteiner";
 import ItemDetailConteiner from "../components/item-detail-container/ItemDetailConteiner";
 import CartConteiner from "../components/cart/CartConteiner";
-import UserProfileContainer from "../components/user-container/UserProfileContainer";
+import UserProfileContainer from "../components/user-container/User-Profile-Container/UserProfileContainer";
 import UserOrdersContainer from "../components/user-container/UserOrdersContainer";
 import ErrorPage from "../components/error-page/ErrorPage";
 import CreateUser from "../components/user-container/CreateUser";

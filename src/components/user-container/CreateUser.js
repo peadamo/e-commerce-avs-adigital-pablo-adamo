@@ -69,7 +69,7 @@ export default function CreateUser() {
           onChange={(e) => setUserLog({ ...userLog, password: e.target.value })}
         />
       </div>
-      <Link to="/">
+      <Link to="/profile">
         <Button onClick={sendUser}>Registrar</Button>
       </Link>
     </Box>

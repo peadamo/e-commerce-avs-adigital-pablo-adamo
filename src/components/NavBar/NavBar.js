@@ -19,6 +19,7 @@ import Badge from "@mui/material/Badge";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { UserContext } from "../../context/UserContext";
+import LogUserButtons from "./LogUserButtons";
 const pages = ["Escaners", "Impresoras", "Destructoras"];
 
 const darkTheme = createTheme({
@@ -50,12 +51,14 @@ const NavBar = () => {
     setAnchorElUser(null);
   };
 
-
-  const exitButton=()=>{
-    handleCloseUserMenu()
-    user.logUser(null)
-
-  }
+  const exitButton = () => {
+    handleCloseUserMenu();
+    user.logUser({
+      id: null,
+      userName: null,
+      password: null,
+    });
+  };
 
   return (
     <ThemeProvider theme={darkTheme}>
@@ -123,7 +126,7 @@ const NavBar = () => {
 
             {/* barra menu desktop */}
             <Typography
-            key={"?"}
+              key={"?"}
               variant="h6"
               noWrap
               component="div"
@@ -158,30 +161,10 @@ const NavBar = () => {
             <Box
               sx={{ flexGrow: 0, display: "inline-flex", alignItems: "center" }}
             >
-              {/* icono del carrito */}
-
-              {user.user == null ? (
+              {user.user.id == null ? (
                 <>
-                      <Link to="/logUser" className="noTextTransform white">
-                    <Button
-                      className="noTextTransform"
-                      sx={{ my: 2, color: "inherit", display: "block" }}
-                    >
-                      Ingresa
-                    </Button>
-                  </Link>
-
-
-
-
-                  <Link to="/newUser" className="noTextTransform white">
-                    <Button
-                      className="noTextTransform"
-                      sx={{ my: 2, color: "inherit", display: "block" }}
-                    >
-                      Creá tu cuenta
-                    </Button>
-                  </Link>
+                  <LogUserButtons />
+           
                 </>
               ) : (
                 <>
@@ -191,10 +174,7 @@ const NavBar = () => {
                   </Box>
                   <Tooltip title="Open settings">
                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
-                      <Avatar
-                        alt="Remy Sharp"
-                        src={user.user.imgSrc}
-                      />
+                      <Avatar alt="Remy Sharp" src={user.user.imgSrc} />
                     </IconButton>
                   </Tooltip>
                   <Menu

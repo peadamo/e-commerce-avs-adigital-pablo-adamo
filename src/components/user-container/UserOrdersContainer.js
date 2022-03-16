@@ -28,17 +28,17 @@ const UserOrdersContainer = () => {
     });
   }, [user.user.id]);
 
-  if(user.user==null){
+  if(user.user.id==null){
     return<h1>No hay usuario loggeado</h1>
   }
   return (
     <div>
-      <h1>soy una tabla con lasd orfdseness</h1>
+      <h1>Pedidos Realizados</h1>
+      <hr/>
 
       {orders &&orders.map((order) => (
           <UserOrderTable key={order.id} {...order} />
         ))}
- {orders && console.log(orders)}
 
 
     </div>
