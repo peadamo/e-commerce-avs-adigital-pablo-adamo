@@ -6,8 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
-import { Box, IconButton, Skeleton } from "@mui/material";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Box, Skeleton } from "@mui/material";
 
 export default function MediaCard({
   id,
